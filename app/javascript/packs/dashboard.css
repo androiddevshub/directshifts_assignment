@@ -4,3 +4,32 @@
   right: 0;
   margin: 20px;
 }
+
+.main {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  margin-left: 50px;
+}
+
+.MuiFormControl-root {
+  width: 300px;
+}
+
+.invite-text {
+  margin-bottom: 20px;
+}
+
+.input-button-div {
+  display: flex;
+  direction: row;
+}
+
+.send-button {
+  margin-left: 20px;
+}
+
+.referral-table {
+  margin-top: 100px;
+  width: 500px;
+}

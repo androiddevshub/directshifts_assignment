@@ -7,7 +7,7 @@ module AuthenticationHelpers
 
   def current_user
     # find token. Check if valid.
-    token = UserToken.where(access_token: params[:token]).first
+    token = UserToken.where(access_token: params[:auth_token]).first
     if token && !token.expired?
       @current_user = User.find(token.user_id)
     else

@@ -1,1 +1,32 @@
-<%= "Test body" %>
+<td class="es-p30t es-p15r es-p15l esd-structure" align="left">
+  <table cellpadding="0" cellspacing="0" width="100%">
+      <tbody>
+          <tr>
+              <td width="570" align="center" valign="top">
+                  <table cellpadding="0" cellspacing="0" width="100%">
+                      <tbody>
+                          <tr>
+                              <td align="center"  style="font-size: 0px;"><a target="_blank"><img class="adapt-img" src="https://tlr.stripocdn.email/content/guids/CABINET_b3ad24678cbb4d23876b91c37b9a8eb8/images/inviterafiki_1.png" alt style="display: block;" width="300"/></a></td>
+                          </tr>
+                          <tr>
+                              <td align="center">
+                                  <h1><%= @name %> invited you<br/>to connect on DirectShifts.</h1>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td align="center">
+                                  <p>Join our portal and find your best job opportunities</p>
+                              </td>
+                          </tr>
+                          <tr>
+                              <td align="center">
+                                <%= link_to '<button style="color:#00000;font-family:arial, "helvetica neue", helvetica, sans-serif;font-size:15px;font-weight:700; margin-top: 50px;">Accept Invitation</button>'.html_safe, "http://localhost:3000", :target => "_blank" %>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</td>
