@@ -19,10 +19,17 @@ import axios from "axios";
 
 export default function DashboardPage() {
 
+  
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [inviteEmail, setInviteEmail] = useState('');
   const [referralsData, setReferralsData] = useState([]);
+
+  useEffect(() => {
+    if (!localStorage.token) {
+      navigate('/');
+    }
+  });
 
   const handleLogout = () => {
     localStorage.clear();

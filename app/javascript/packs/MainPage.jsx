@@ -20,7 +20,6 @@ export default function MainPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("inside useEffect")
     if (localStorage.token) {
       navigate('/dashboard');
     }
