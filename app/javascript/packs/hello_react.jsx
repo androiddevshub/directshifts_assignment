@@ -5,6 +5,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import MainPage from './MainPage'
+import DashboardPage from './DashboardPage';
 
 const Hello = props => (
   <div>Hello {props.name}!</div>
@@ -20,7 +23,12 @@ Hello.propTypes = {
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Hello name="React" />,
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<MainPage/>} />
+        <Route path="/dashboard" element={<DashboardPage/>} />
+    </Routes>
+    </Router>,
     document.body.appendChild(document.createElement('div')),
   )
 })
