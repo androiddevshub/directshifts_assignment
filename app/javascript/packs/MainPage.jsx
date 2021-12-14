@@ -20,13 +20,12 @@ export default function MainPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (localStorage.token) {
+    if (localStorage.auth_token) {
       navigate('/dashboard');
     }
   });
 
   const [formType, setFormType] = useState("signin");
-  const [openSnackBar, setOpenSnackBar] = useState(false);
   
   const [formState, setFormState] = useState({
     name: "",
@@ -44,35 +43,36 @@ export default function MainPage() {
   };
 
   const handleSubmit = () => {
-    if (formType === "signup") {
+    if (formType === "signup" && formState.name && formState.email && formState.password) {
       axios
-        .post('/api/users', {
-          name: formState.name,
-          email: formState.email,
-          password: formState.password
-        })
-        .then((response) => {
-          setFormState({ name: "", email: "", password: "" });
-          alert(response.data.message);
-          setFormType("signin");
-        }).catch((error) => {
-          alert(error.response.data.message);
-        });
-    }
-    if (formType === "signin") {
+      .post('/api/users', {
+        name: formState.name,
+        email: formState.email,
+        password: formState.password
+      })
+      .then((response) => {
+        setFormState({ name: "", email: "", password: "" });
+        alert(response.data.message);
+        setFormType("signin");
+      }).catch((error) => {
+        alert(error.response.data.message);
+      });
+    } else if (formType === "signin" && formState.email && formState.password) {
       axios
-        .post('/api/users/login', {
-          email: formState.email,
-          password: formState.password
-        })
-        .then((response) => {
-          setFormState({ email: "", password: "" });
-          alert(response.data.message)
-          localStorage.setItem('auth_token', response.data.data.token);
-          navigate('/dashboard');
-        }).catch((error) => {
-          alert(error.response.data.message)
-        });
+      .post('/api/users/login', {
+        email: formState.email,
+        password: formState.password
+      })
+      .then((response) => {
+        setFormState({ email: "", password: "" });
+        alert(response.data.message)
+        localStorage.setItem('auth_token', response.data.data.token);
+        navigate('/dashboard');
+      }).catch((error) => {
+        alert(error.response.data.message)
+      });
+    } else {
+      alert('Please fill out all fields');
     }
   };
 

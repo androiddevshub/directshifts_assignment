@@ -26,7 +26,7 @@ export default function DashboardPage() {
   const [referralsData, setReferralsData] = useState([]);
 
   useEffect(() => {
-    if (!localStorage.token) {
+    if (!localStorage.auth_token) {
       navigate('/');
     }
   });
@@ -113,7 +113,7 @@ export default function DashboardPage() {
                 <TableBody>
                   {referralsData.map((row, index) => (
                     <TableRow
-                      key={row.name}
+                      key={row.id}
                       sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                     >
                       <TableCell component="th" scope="row">
